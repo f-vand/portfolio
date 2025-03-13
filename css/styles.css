@@ -1,0 +1,44 @@
+/* html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*  body a flex container  */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa; 
+  color: #212529;
+}
+
+/* Make the main  expand */
+main {
+  flex: 1;
+}
+
+/* Footer styles */
+footer {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/*  dark mode  */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar,
+body.dark-mode footer {
+  background-color: #1f1f1f !important;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
