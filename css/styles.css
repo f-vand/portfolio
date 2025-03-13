@@ -42,3 +42,91 @@ body.dark-mode footer {
 body.dark-mode a {
   color: #bb86fc;
 }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: start; 
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card-content {
+  padding: 15px;
+}
+.card-title {
+  font-size: 1.4em;
+  margin: 10px 0;
+  color: #34495e;
+}
+.card-text {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+.toggle-details {
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.toggle-details:hover {
+  background-color: #1c5980;
+}
+
+/* Hidden Details */
+.project-details {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-left: 4px solid #2980b9;
+  border-radius: 5px;
+}
+.project-details.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Link */
+a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}

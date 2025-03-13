@@ -13,4 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
       darkModeToggle.textContent = "Dark Mode";
     }
   });
+  // toggle
+  const toggleButtons = document.querySelectorAll(".toggle-details");
+
+      toggleButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          // Get the closest card container
+          const card = this.closest(".card");
+          // Within that card, find the project details element
+          const details = card.querySelector(".project-details");
+
+          if (details.classList.contains("visible")) {
+            details.classList.remove("visible");
+            this.textContent = "Show Details";
+          } else {
+            details.classList.add("visible");
+            this.textContent = "Hide Details";
+          }
+        });
+      });
 });
