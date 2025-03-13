@@ -80,4 +80,52 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Thank you for your message!");
           }
         });
+ 
 });
+
+// Matrix digital rain code:
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+// Resize canvas to match container dimensions
+function resizeCanvas() {
+  const container = document.querySelector(".matrix-container");
+  canvas.width = container.clientWidth;
+  canvas.height = container.clientHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+// Matrix settings
+const fontSize = 16;
+const characters = "01"; // Using simple '0' and '1'
+const charsArray = characters.split("");
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+function draw() {
+  // Create a translucent black background to achieve a trailing effect
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Set text style for the digital rain
+  ctx.fillStyle = "#0F0"; // Bright green text
+  ctx.font = fontSize + "px monospace";
+  
+  // Draw each drop of digital rain
+  for (let i = 0; i < drops.length; i++) {
+    let text = charsArray[Math.floor(Math.random() * charsArray.length)];
+    let x = i * fontSize;
+    let y = drops[i] * fontSize;
+    ctx.fillText(text, x, y);
+    
+    // Reset drop randomly when it goes off-screen
+    if (y > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+// Animate the Matrix rain effect at roughly 30 frames per second
+setInterval(draw, 33);
